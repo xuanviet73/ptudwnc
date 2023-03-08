@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using TatBlog.Core.Contracts;
+using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
 
 namespace TatBlog.Services.Blogs
 {
-    public interface IBlogReposiory
+    public interface IBlogRepository
     {
         Task<Post> GetPostAsync(
             int year,
@@ -15,15 +18,31 @@ namespace TatBlog.Services.Blogs
             string slug,
             CancellationToken cancellationToken = default);
 
-        Task<IList<Post>> GetPopularArticlrsAsync(
+        Task<IList<Post>> GetPopularArticlesAsync(
             int numPosts,
             CancellationToken cancellationToken = default);
 
         Task<bool> IsPostSlugExistedAsync(
-            int postId, string slug, 
+            int postId,
+            string slug,
             CancellationToken cancellationToken = default);
 
-        Task IncreaseViewCountAsync(int postId,
+        Task IncreaseViewCountAsync(
+            int postId,
             CancellationToken cancellationToken = default);
+        Task<IList<CategoryItem>> GetCategoriesAsync(
+            bool showOnMenu = false,
+            CancellationToken cancellationToken = default);
+        Task<IPagedList<TagItem>> GetPagedTagsAsync(
+            IPagingParams pagingParams,
+            CancellationToken cancellationToken = default);
+        Task<Post> GetPagedPostsAsync(
+            PostQuery postQuery,
+            int pageNumber,
+            int pageSize,
+            CancellationToken cancellationToken = default);
+
+
+
     }
 }

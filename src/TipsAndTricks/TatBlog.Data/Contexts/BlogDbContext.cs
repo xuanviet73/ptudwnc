@@ -15,9 +15,14 @@ namespace TatBlog.Data.Contexts
         public DbSet<Category> Categories { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Tag> Tags { get; set; }
+
+        public BlogDbContext(DbContextOptions<BlogDbContext> options)
+            : base(options)
+        {
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.;Database=Tatblog;Trusted_Connection=True;MultipleActiveResultSets=True;Encrypt=False");
+            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=Tatblog;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=true");
 
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -14,13 +14,17 @@ namespace TatBlog.Data.Mappings
         public void Configure(EntityTypeBuilder<Tag> builder)
         {
             builder.ToTable("Tags");
-            builder.HasKey(a => a.Id);
-            builder.Property(a => a.Name)
+
+            builder.HasKey(t => t.Id);
+
+            builder.Property(t => t.Name)
                 .HasMaxLength(50)
                 .IsRequired();
-            builder.Property(a => a.Description)
-                 .HasMaxLength(500);
-            builder.Property(a => a.UrlSlug)
+
+            builder.Property(t => t.Description)
+                .HasMaxLength(500);
+
+            builder.Property(t => t.UrlSlug)
                 .HasMaxLength(50)
                 .IsRequired();
         }
