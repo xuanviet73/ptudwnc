@@ -145,5 +145,16 @@ namespace TatBlog.Services.Blogs
         {
             throw new NotImplementedException();
         }
+        public async Task<IPagedList<Post>> GetPagedPostsAsync(
+        PostQuery postQuery,
+        int pageNumber = 1,
+        int pageSize = 10,
+        CancellationToken cancellationToken = default)
+        {
+            return await FilterPosts(postQuery).ToPagedListAsync(
+                pageNumber, pageSize,
+                nameof(Post.PostedDate), "DESC",
+                cancellationToken);
+        }
     }
 }
