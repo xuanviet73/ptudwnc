@@ -1,4 +1,6 @@
-﻿@model IPagedList<Post>
+﻿@using TatBlog.Services.Blogs;
+
+@model IPagedList<Post>
 @{
     var postQuery = (ViewBag.PostQuery as PostQuery) ?? new PostQuery();
     var actionName = "Index"; 

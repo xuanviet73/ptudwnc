@@ -17,7 +17,7 @@ namespace TatBlog.WebApp.Extensions
             return builder;
         }
         public static WebApplicationBuilder ConfigureServices(
-            WebApplicationBuilder builder)
+            this WebApplicationBuilder builder)
         {
             builder.Services.AddDbContext<BlogDbContext>(options =>
             options.UseSqlServer(

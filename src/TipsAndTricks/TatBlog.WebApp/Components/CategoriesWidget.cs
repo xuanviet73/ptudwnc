@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using TatBlog.Core.DTO;
 using TatBlog.Services.Blogs;
 
 namespace TatBlog.WebApp.Components
@@ -13,8 +14,13 @@ namespace TatBlog.WebApp.Components
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var categories = await _blogRepository.GetCategoriesAsync();
+            var categories = await _blogRepository.GetCategoryItemsAsync();
             return View(categories);
+        }
+
+        private IViewComponentResult View(IList<CategoryItem> categories)
+        {
+            throw new NotImplementedException();
         }
     }
 }

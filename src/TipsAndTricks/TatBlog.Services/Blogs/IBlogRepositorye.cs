@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using TatBlog.Core.Contracts;
-using TatBlog.Core.DTO;
 using TatBlog.Core.Entities;
+using TatBlog.Core.DTO;
+using TatBlog.Core.Contracts;
 
 namespace TatBlog.Services.Blogs
 {
@@ -19,30 +18,29 @@ namespace TatBlog.Services.Blogs
             CancellationToken cancellationToken = default);
 
         Task<IList<Post>> GetPopularArticlesAsync(
-            int numPosts,
+            int numPost,
             CancellationToken cancellationToken = default);
 
         Task<bool> IsPostSlugExistedAsync(
-            int postId,
-            string slug,
+            int postId, string slug,
             CancellationToken cancellationToken = default);
 
         Task IncreaseViewCountAsync(
             int postId,
-            CancellationToken cancellationToken = default);
-        Task<IList<CategoryItem>> GetCategoriesAsync(
+            CancellationToken cancellationToken);
+        Task<IList<CategoryItem>> GetCategoryItemsAsync(
             bool showOnMenu = false,
             CancellationToken cancellationToken = default);
-        Task<IPagedList<TagItem>> GetPagedTagsAsync(
+        Task<IPagedList<TagItem>> GetPagedTagAsync(
             IPagingParams pagingParams,
             CancellationToken cancellationToken = default);
-        Task<Post> GetPagedPostsAsync(
-            PostQuery postQuery,
-            int pageNumber,
-            int pageSize,
+        public Task<Tag> GetTagBySlugAsync(
+            string slug,
             CancellationToken cancellationToken = default);
-
-
-
+        Task<IPagedList<Post>> GetPagedPostsAsync(
+        PostQuery postQuery,
+        int pageNumber = 1,
+        int pageSize = 10,
+        CancellationToken cancellationToken = default);
     }
 }
