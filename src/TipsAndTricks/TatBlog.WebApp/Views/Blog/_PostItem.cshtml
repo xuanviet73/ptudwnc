@@ -2,7 +2,7 @@
 
 @{
     var imageUrl = string.IsNullOrWhiteSpace(Model.ImageUrl)
-                ? "/images/monkey.jpg"
+                ? "/images/image_1.jpg"
                 : $"/{Model.ImageUrl}";
 }
 
@@ -31,7 +31,7 @@
                            asp-action="Author"
                            asp-route-slug="@Model.Author.UrlSlug"
                            class="text-primary">
-                           @* @Model.Author.Fullname*@
+                            @Model.Author.Fullname
                         </a>
                         <small class="text-muted">Chủ đề:</small>
                         <a asp-controller="Blog"

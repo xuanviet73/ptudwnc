@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TatBlog.Core.Contracts;
 using TatBlog.Core.DTO;
 using TatBlog.Services.Blogs;
+using TatBlog.Core.Contracts;
 
 namespace TatBlog.WebApp.Controllers
 {
@@ -20,20 +20,25 @@ namespace TatBlog.WebApp.Controllers
             [FromQuery(Name = "ps")] int pageSize = 10
         )
         {
+            // Tao doi tuong chua cac dieu kien truy van
             var postQuery = new PostQuery()
             {
+                
                 PublishedOnly = true,
 
+                
                 Keyword = keywork
             };
 
-            // Truy van cac bai viet theo dieu kien da tao
-            var postList = await _blogRepository.GetPagedPostsAsync(postQuery, pageNumber, pageSize);
+            
+            var postList = await _blogRepository.GetPagedPostsAsyn(postQuery, pageNumber, pageSize);
 
+            
             ViewBag.PostQuery = postQuery;
 
             ViewBag.CurrentTime = DateTime.Now.ToString("HH:mm:ss");
 
+            
             return View(postList);
         }
 

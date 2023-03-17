@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TatBlog.Core.Entities;
+using TatBlog.Core.Contracts;
 
-namespace TatBlog.Core.DTO
+namespace TatBlog.Core.Entities
 {
-    public class PostItem
+    public class PostItem : IEntity
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
         public string ShortDescription { get; set; }
+        public string Description { get; set; }
         public string Meta { get; set; }
         public string UrlSlug { get; set; }
         public string ImageUrl { get; set; }
@@ -22,8 +22,8 @@ namespace TatBlog.Core.DTO
         public DateTime? ModifiedDate { get; set; }
         public int CategoryId { get; set; }
         public int AuthorId { get; set; }
-        public string CategoryName { get; set; }
-        public string AuthorName { get; set; }
-        public IList<String> Tags { get; set; }
+        public Category Category { get; set; }
+        public Author Author { get; set; }
+        public IList<Tag> Tags { get; set; }
     }
 }
