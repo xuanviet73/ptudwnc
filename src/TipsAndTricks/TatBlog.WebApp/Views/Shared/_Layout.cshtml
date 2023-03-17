@@ -13,18 +13,18 @@
 	@await RenderSectionAsync("style", required: false)
 </head>
 <body>
-	<!-- Thanh tieu de, logo, menu -->
+	
 	<partial name="_Header" />
 
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-9">
-				<!-- Phan noi dung chinh -->
+				
 				@RenderBody()
 			</div>
 			<div class="col-3 border-start">
-				<!-- Danh sach chuyen muc, tag cloud -->
-				<partial name="_SideBar" />
+				
+				<partial name="_SiderBar" />
 			</div>
 		</div>
 	</div>

@@ -3,6 +3,9 @@ using TatBlog.Data.Contexts;
 using TatBlog.Data.Seeders;
 using TatBlog.Services.Blogs;
 using static System.Formats.Asn1.AsnWriter;
+using TatBlog.Services.Media;
+using NLog.Web;
+using TatBlog.WebApp.Middlewares;
 
 namespace TatBlog.WebApp.Extensions
 {
@@ -21,9 +24,12 @@ namespace TatBlog.WebApp.Extensions
         {
             builder.Services.AddDbContext<BlogDbContext>(options =>
             options.UseSqlServer(
-            builder.Configuration
-            .GetConnectionString("DefaultConnection")));
-            builder.Services.AddScoped<IBlogRepository, BlogRepository>(); builder.Services.AddScoped<IDataSeeder, DataSeeder>();
+                    builder.Configuration
+                        .GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddScoped<IMediaManager, LocalFileSystemMediaManager>();
+            builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+            builder.Services.AddScoped<IDataSeeder, DataSeeder>();
             return builder;
         }
 
@@ -55,7 +61,17 @@ namespace TatBlog.WebApp.Extensions
             
             app.UseRouting();
 
+            app.UseMiddleware<UserActivityMiddleware>();
+
             return app;
+        }
+
+        public static WebApplicationBuilder ConfigureNLog(this WebApplicationBuilder builder)
+        {
+            builder.Logging.ClearProviders();
+            builder.Host.UseNLog();
+
+            return builder;
         }
 
         public static IApplicationBuilder UseDateSeeder(this IApplicationBuilder app)

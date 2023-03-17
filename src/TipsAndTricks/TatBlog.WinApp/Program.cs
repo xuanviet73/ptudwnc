@@ -131,18 +131,18 @@ namespace TatBlog.WinApp
         }
         static async void TimTagTheoSlug(BlogDbContext context, string slug)
         {
-            // Tạo đối tượng BlogRepository
-            IBlogRepository blogRepo = new BlogRepository(context);
+            //// Tạo đối tượng BlogRepository
+            //IBlogRepository blogRepo = new BlogRepository(context);
 
-            // Lấy danh sách từ khóa
-            Tag tag = await blogRepo.GetTagBySlugAsync(slug);
+            //// Lấy danh sách từ khóa
+            //Tag tag = await blogRepo.GetTagBySlugAsync(slug);
 
-            // Xuất ra màn hình
-            Console.WriteLine("{0,-5}{1,-50}{2,10}", "ID", "Name", "Count");
-            if (tag != null)
-            {
-                Console.WriteLine("{0,-5}{1,-50}{2,10}", tag.Id, tag.Name, tag.Posts.Count);
-            }
+            //// Xuất ra màn hình
+            //Console.WriteLine("{0,-5}{1,-50}{2,10}", "ID", "Name", "Count");
+            //if (tag != null)
+            //{
+            //    Console.WriteLine("{0,-5}{1,-50}{2,10}", tag.Id, tag.Name, tag.Posts.Count);
+            //}
         }
     }
 }

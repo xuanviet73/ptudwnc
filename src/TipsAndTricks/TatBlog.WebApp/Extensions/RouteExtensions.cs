@@ -2,8 +2,6 @@
 {
     public static class RouteExtensions
     {
-        // Dinh nghia route template, route constraint cho cac endpoints
-        // ket hop voi cac action trong cac controller
         public static IEndpointRouteBuilder UseBlogRoutes(this IEndpointRouteBuilder endpoints)
         {
             endpoints.MapControllerRoute(
@@ -22,6 +20,12 @@
                 name: "single-post",
                 pattern: "blog/post/{year:int}/{month:int}/{day:int}/{slug}",
                 defaults: new { controller = "Blog", action = "Post" }
+            );
+
+            endpoints.MapControllerRoute(
+                name: "admin-area",
+                pattern: "admin/{controller=Dashboard}/{action=Index}/{id?}",
+                defaults: new { area = "Admin" }
             );
 
             endpoints.MapControllerRoute(

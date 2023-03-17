@@ -31,7 +31,7 @@ namespace TatBlog.WebApp.Controllers
             };
 
             
-            var postList = await _blogRepository.GetPagedPostsAsyn(postQuery, pageNumber, pageSize);
+            var postList = await _blogRepository.GetPagedPostsAsync(postQuery, pageNumber, pageSize);
 
             
             ViewBag.PostQuery = postQuery;

@@ -3,6 +3,8 @@ using TatBlog.Data.Contexts;
 using TatBlog.Data.Seeders;
 using TatBlog.Services.Blogs;
 using TatBlog.WebApp.Extensions;
+using TatBlog.WebApp.Mapsters;
+using TatBlog.WebApp.Validations;
 
 namespace TatBlog.WebApp
 {
@@ -12,8 +14,13 @@ namespace TatBlog.WebApp
 		{
 			var builder = WebApplication.CreateBuilder(args);
 			{
-				builder.ConfigureMvc().ConfigureServices();
-			}
+                builder
+                    .ConfigureNLog()
+                    .ConfigureMvc()
+                    .ConfigureServices()
+                    .ConfigureMapster()
+                    .ConfigureFluentValidation();
+            }
 
 			var app = builder.Build();
 			{
