@@ -150,6 +150,42 @@ namespace TatBlog.Data.Seeders
                         tags[0]
                     }
                 },
+
+                new() {
+                    Title = "ASP.NET Core Diagnostic Scenarios",
+                    ShortDescription = "David and friends has a great repository",
+                    Description = "Here's a few great DON'T and Do examples",
+                    Meta = "David and friends has a great repository",
+                    UrlSlug = "aspdotnet-core-diagnostic-scenarios",
+                    Published = true,
+                    PostedDate = new DateTime(2021, 9, 30, 10, 20, 0),
+                    ModifiedDate = null,
+                    ViewCount = 10,
+                    Author = authors[0],
+                    Category = categories[0],
+                    Tags = new List<Tag>()
+                    {
+                        tags[0]
+                    }
+                },
+
+                new() {
+                    Title = "ASP.NET Core Diagnostic Scenarios",
+                    ShortDescription = "David and friends has a great repository",
+                    Description = "Here's a few great DON'T and Do examples",
+                    Meta = "David and friends has a great repository",
+                    UrlSlug = "aspdotnet-core-diagnostic-scenarios",
+                    Published = true,
+                    PostedDate = new DateTime(2021, 9, 30, 10, 20, 0),
+                    ModifiedDate = null,
+                    ViewCount = 10,
+                    Author = authors[0],
+                    Category = categories[0],
+                    Tags = new List<Tag>()
+                    {
+                        tags[0]
+                    }
+                },
             };
 
             _dbContext.Posts.AddRange(posts);
