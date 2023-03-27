@@ -102,6 +102,10 @@ namespace TatBlog.Services.Blogs
 
         public Task<bool> IsPostSlugExistedAsync(
            int postId, string slug, CancellationToken cancellationToken = default);
+        Task<IList<Post>> GetFeaturePostAysnc(
+          int numberPost,
+          CancellationToken cancellationToken = default);
+
     }
 
 	

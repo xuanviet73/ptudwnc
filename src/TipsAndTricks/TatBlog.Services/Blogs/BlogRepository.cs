@@ -469,6 +469,21 @@ namespace TatBlog.Services.Blogs
 
             return posts;
         }
+        public async Task<IList<Post>> GetFeaturePostAysnc(
+          int numberPost,
+          CancellationToken cancellationToken = default)
+        {
+
+            return await _context.Set<Post>()
+                .Include(x => x.Category)
+                .Include(x => x.Author)
+                .Include(x => x.Tags)
+                .OrderByDescending(x => x.ViewCount)
+                .Take(numberPost)
+                .ToListAsync(cancellationToken);
+        }
+
+        
 
     }
 }
