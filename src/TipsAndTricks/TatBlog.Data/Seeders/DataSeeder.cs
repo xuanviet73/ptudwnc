@@ -34,35 +34,35 @@ namespace TatBlog.Data.Seeders
             {
                 new()
                 {
-                    Fullname = "Jason Mouth",
+                    FullName = "Jason Mouth",
                     UrlSlug = "jason-mouth",
                     Email = "json@gmail.com",
                     JoinedDate = new DateTime(2022, 10, 21)
                 },
                 new()
                 {
-                    Fullname = "Jessica Wonder",
+                    FullName = "Jessica Wonder",
                     UrlSlug = "jessica-wonder",
                     Email = "jessica665@motip.com",
                     JoinedDate = new DateTime(2020, 4, 19)
                 },
                 new()
                 {
-                    Fullname = "Author 3",
+                    FullName = "Author 3",
                     UrlSlug = "author-3",
                     Email = "author3@gmail.com",
                     JoinedDate = new DateTime(2020, 3, 3)
                 },
                 new()
                 {
-                    Fullname = "Author 4",
+                    FullName = "Author 4",
                     UrlSlug = "author-4",
                     Email = "author4@gmail.com",
                     JoinedDate = new DateTime(2020, 4, 4)
                 },
                 new()
                 {
-                    Fullname = "Author 5",
+                    FullName = "Author 5",
                     UrlSlug = "author-5",
                     Email = "author5@gmail.com",
                     JoinedDate = new DateTime(2020, 5, 5)

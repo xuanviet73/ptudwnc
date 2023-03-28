@@ -314,14 +314,6 @@ namespace TatBlog.Services.Blogs
             return post.Published;
         }
 
-        public async Task<IList<Post>> GetRandomArticlesAsync(
-            int numPosts, CancellationToken cancellationToken = default)
-        {
-            return await _context.Set<Post>()
-                .OrderBy(x => Guid.NewGuid())
-                .Take(numPosts)
-                .ToListAsync(cancellationToken);
-        }
 
         public async Task<IPagedList<Post>> GetPagedPostsAsync(
             PostQuery condition,

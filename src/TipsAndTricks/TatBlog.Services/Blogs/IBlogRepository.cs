@@ -82,8 +82,6 @@ namespace TatBlog.Services.Blogs
         public Task<bool> TogglePublishedFlagAsync(
             int postId, CancellationToken cancellationToken = default);
 
-        public Task<IList<Post>> GetRandomArticlesAsync(
-            int numPosts, CancellationToken cancellationToken = default);
 
         //public Task<IPagedList<Post>> GetPagedPostsAsync(
         //    PostQuery condition,

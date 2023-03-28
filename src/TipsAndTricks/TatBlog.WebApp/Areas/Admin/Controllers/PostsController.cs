@@ -40,7 +40,7 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
 
             model.AuthorList = authors.Select(i => new SelectListItem()
             {
-                Text = i.Fullname,
+                Text = i.FullName,
                 Value = i.Id.ToString(),
             });
 
@@ -58,7 +58,7 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
 
             model.AuthorList = authors.Select(i => new SelectListItem()
             {
-                Text = i.Fullname,
+                Text = i.FullName,
                 Value = i.Id.ToString(),
             });
 

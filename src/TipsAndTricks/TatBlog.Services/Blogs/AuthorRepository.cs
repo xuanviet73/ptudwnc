@@ -58,11 +58,11 @@ public class AuthorRepository : IAuthorRepository
 		CancellationToken cancellationToken = default)
 	{
 		return await _context.Set<Author>()
-			.OrderBy(a => a.Fullname)
+			.OrderBy(a => a.FullName)
 			.Select(a => new AuthorItem()
 			{
 				Id = a.Id,
-				Fullname = a.Fullname,
+				FullName = a.FullName,
 				Email = a.Email,
 				JoinedDate = a.JoinedDate,
 				ImageUrl = a.ImageUrl,
@@ -80,11 +80,11 @@ public class AuthorRepository : IAuthorRepository
 		return await _context.Set<Author>()
 			.AsNoTracking()
 			.WhereIf(!string.IsNullOrWhiteSpace(name),
-				x => x.Fullname.Contains(name))
+				x => x.FullName.Contains(name))
 			.Select(a => new AuthorItem()
 			 {
 				 Id = a.Id,
-				 Fullname = a.Fullname,
+				 FullName = a.FullName,
 				 Email = a.Email,
 				 JoinedDate = a.JoinedDate,
 				 ImageUrl = a.ImageUrl,
@@ -104,7 +104,7 @@ public class AuthorRepository : IAuthorRepository
 
 		if (!string.IsNullOrEmpty(name))
 		{
-			authorQuery = authorQuery.Where(x => x.Fullname.Contains(name));
+			authorQuery = authorQuery.Where(x => x.FullName.Contains(name));
 		}
 
 		return await mapper(authorQuery)

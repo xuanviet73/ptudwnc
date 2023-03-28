@@ -15,7 +15,7 @@ namespace TatBlog.Data.Mappings
         {
             builder.ToTable("Authors");
             builder.HasKey(a => a.Id);
-            builder.Property(a => a.Fullname).IsRequired().HasMaxLength(100);
+            builder.Property(a => a.FullName).IsRequired().HasMaxLength(100);
             builder.Property(a => a.UrlSlug).IsRequired().HasMaxLength(100);
             builder.Property(a => a.ImageUrl).HasMaxLength(500);
             builder.Property(a => a.Email).HasMaxLength(150);
