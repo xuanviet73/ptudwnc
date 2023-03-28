@@ -17,11 +17,11 @@ namespace TatBlog.Services.Blogs
 
         public Task IncreaseViewCountAsync(int postId, CancellationToken cancellationToken = default);
 
-        public Task<Author> GetAuthorAsync(string slug, CancellationToken cancellationToken = default);
+        //public Task<Author> GetAuthorAsync(string slug, CancellationToken cancellationToken = default);
 
-        public Task<Author> GetAuthorByIdAsync(int authorId);
+        //public Task<Author> GetAuthorByIdAsync(int authorId);
 
-        public Task<IList<AuthorItem>> GetAuthorsAsync(CancellationToken cancellationToken = default);
+        //public Task<IList<AuthorItem>> GetAuthorsAsync(CancellationToken cancellationToken = default);
 
         public Task<IList<Post>> GetPostsAsync(
            PostQuery condition,

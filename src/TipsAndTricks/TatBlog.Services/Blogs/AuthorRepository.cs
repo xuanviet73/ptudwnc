@@ -58,11 +58,11 @@ public class AuthorRepository : IAuthorRepository
 		CancellationToken cancellationToken = default)
 	{
 		return await _context.Set<Author>()
-			.OrderBy(a => a.FullName)
+			.OrderBy(a => a.Fullname)
 			.Select(a => new AuthorItem()
 			{
 				Id = a.Id,
-				FullName = a.FullName,
+				Fullname = a.Fullname,
 				Email = a.Email,
 				JoinedDate = a.JoinedDate,
 				ImageUrl = a.ImageUrl,
@@ -79,18 +79,18 @@ public class AuthorRepository : IAuthorRepository
 	{
 		return await _context.Set<Author>()
 			.AsNoTracking()
-			.WhereIf(!string.IsNullOrWhiteSpace(name), 
-				x => x.FullName.Contains(name))
+			.WhereIf(!string.IsNullOrWhiteSpace(name),
+				x => x.Fullname.Contains(name))
 			.Select(a => new AuthorItem()
-			{
-				Id = a.Id,
-				FullName = a.FullName,
-				Email = a.Email,
-				JoinedDate = a.JoinedDate,
-				ImageUrl = a.ImageUrl,
-				UrlSlug = a.UrlSlug,
-				PostCount = a.Posts.Count(p => p.Published)
-			})
+			 {
+				 Id = a.Id,
+				 Fullname = a.Fullname,
+				 Email = a.Email,
+				 JoinedDate = a.JoinedDate,
+				 ImageUrl = a.ImageUrl,
+				 UrlSlug = a.UrlSlug,
+				 PostCount = a.Posts.Count(p => p.Published)
+			 })
 			.ToPagedListAsync(pagingParams, cancellationToken);
 	}
 
@@ -104,7 +104,7 @@ public class AuthorRepository : IAuthorRepository
 
 		if (!string.IsNullOrEmpty(name))
 		{
-			authorQuery = authorQuery.Where(x => x.FullName.Contains(name));
+			authorQuery = authorQuery.Where(x => x.Fullname.Contains(name));
 		}
 
 		return await mapper(authorQuery)

@@ -19,11 +19,11 @@ public class PagingMetadata : IPagedList
 	}
 
 
-	public int PageIndex { get; private set; }
+	public int PageIndex { get; set; }
 
-	public int PageSize { get; }
+	public int PageSize { get; set; }
 
-	public int TotalItemCount { get; }
+	public int TotalItemCount { get; set; }
 
 	public int PageNumber
 	{
@@ -45,6 +45,7 @@ public class PagingMetadata : IPagedList
 
 			return total;
 		}
+		set { PageIndex = value - 1; }
 	}
 
 	public bool HasPreviousPage => PageIndex > 0;
