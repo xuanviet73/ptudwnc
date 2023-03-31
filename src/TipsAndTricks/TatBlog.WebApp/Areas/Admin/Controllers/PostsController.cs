@@ -18,18 +18,21 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
         private readonly IMapper _mapper;
         private readonly ILogger<PostsController> _logger;
         private readonly IAuthorRepository _authorRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
         public PostsController(
             ILogger<PostsController> logger, 
             IBlogRepository blogRepository, 
             IMediaManager mediaManager, 
             IAuthorRepository authorRepository,
+            ICategoryRepository categoryRepository,
             IMapper mapper)
         {
             this._logger = logger;
             this._blogRepository = blogRepository;
             this._mediaManager = mediaManager;
             this._mapper = mapper;
+            this._categoryRepository = categoryRepository;
             this._authorRepository = authorRepository;
         }
 
