@@ -1,5 +1,4 @@
-﻿using TatBlog.Core.Entities;
-using TatBlog.Data.Contexts;
+﻿using TatBlog.Data.Contexts;
 using TatBlog.Data.Seeders;
 using TatBlog.Services.Blogs;
 
@@ -10,7 +9,7 @@ namespace TatBlog.WinApp
         static void Main(string[] args)
         {
             // Tạo đối tượng context để quản lý phiên làm việc
-            var context = new BlogDbContext();
+            //var context = new BlogDbContext();
 
             // InitDB(context);
 
@@ -42,7 +41,7 @@ namespace TatBlog.WinApp
             foreach (var author in authors)
             {
                 Console.WriteLine("{0,-4}{1,-30}{2,-30}{3,12:MM/dd/yyyy}",
-                    author.Id, author.Fullname, author.Email, author.JoinedDate);
+                    author.Id, author.FullName, author.Email, author.JoinedDate);
             }
         }
 
@@ -54,7 +53,7 @@ namespace TatBlog.WinApp
                 Title = p.Title,
                 ViewCount = p.ViewCount,
                 PostedDate = p.PostedDate,
-                Author = p.Author.Fullname,
+                Author = p.Author.FullName,
                 Category = p.Category.Name
             }).ToList();
 

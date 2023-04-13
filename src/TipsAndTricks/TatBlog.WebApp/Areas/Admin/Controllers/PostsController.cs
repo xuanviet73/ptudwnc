@@ -17,13 +17,31 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
         private readonly IMediaManager _mediaManager;
         private readonly IMapper _mapper;
         private readonly ILogger<PostsController> _logger;
+<<<<<<< Updated upstream
 
         public PostsController(ILogger<PostsController> logger, IBlogRepository blogRepository, IMediaManager mediaManager, IMapper mapper)
+=======
+        private readonly IAuthorRepository _authorRepository;
+        private readonly ICategoryRepository _categoryRepository;
+
+        public PostsController(
+            ILogger<PostsController> logger, 
+            IBlogRepository blogRepository, 
+            IMediaManager mediaManager, 
+            IAuthorRepository authorRepository,
+            ICategoryRepository categoryRepository,
+            IMapper mapper)
+>>>>>>> Stashed changes
         {
             this._logger = logger;
             this._blogRepository = blogRepository;
             this._mediaManager = mediaManager;
             this._mapper = mapper;
+<<<<<<< Updated upstream
+=======
+            this._categoryRepository = categoryRepository;
+            this._authorRepository = authorRepository;
+>>>>>>> Stashed changes
         }
 
         private async Task PopulatePostFilterModelAsync(PostFilterModel model)
